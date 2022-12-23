@@ -62,6 +62,7 @@ architecture main of top_level_entity is
 			m : in std_logic_vector(119 downto 0);
 			cout : out std_logic_vector(119 downto 0);
 			mlen : in std_logic_vector(6 downto 0);
+			clock : in std_logic;
 			en : in std_logic;
 			cycle : out std_logic_vector(2 downto 0);
 			done : out std_logic;
@@ -81,7 +82,7 @@ architecture main of top_level_entity is
 			rx : in std_logic;
 			clock : in std_logic;
 			en : in std_logic;
-			m : buffer std_logic_vector(119 downto 0);
+			mout : buffer std_logic_vector(119 downto 0);
 			done : buffer std_logic;
 			mlen : out std_logic_vector(6 downto 0)
 		);
@@ -234,6 +235,7 @@ begin
 			m => m,
 			cout => cto,
 			mlen => mlen,
+			clock => clock,
 			en => cge,
 			cycle => cycle,
 			done => cgd,
@@ -251,7 +253,7 @@ begin
 			rx => rx,
 			clock => clock,
 			en => re,
-			m => mto,
+			mout => mto,
 			done => rd,
 			mlen => mlen
 		);
